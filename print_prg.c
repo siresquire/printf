@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * print_prg - writes the character c to stdout
+ * print_prg - print a percent symbol
  * @a: input char
  * @b: buffer pointer
  * @ib: index for buffer pointer
