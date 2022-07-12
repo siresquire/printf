@@ -19,7 +19,7 @@ int print_rev(va_list l, char *b, unsigned int ib)
 	{
 		for (i = 0; n[i]; i++)
 			ib = handl_buf(b, n[i], ib);
-			return (6);
+		return (6);
 	}
 	for (i = 0; s[i]; i++)
 		;
