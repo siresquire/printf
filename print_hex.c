@@ -1,8 +1,8 @@
 #include <main.h>
 
 /**
- * print_add - prints decimal in hexexadecimal
- * @l: input 
+ * print_hex - prints decimal in hexexadecimal
+ * @l: input
  * @b: buffer pointer
  * @ib: index for buffer pointer
  * Return: number of char printed
