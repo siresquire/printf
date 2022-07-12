@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * printloct - prints long decimal in octal
- * @l: input number
- * @b: buffer pointer
- * @ib: index for buffer pointer
+ * prinloct - prints long decimal in octal
+ * @arguments: list of arguments
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
  * Return: number of char printed.
  */
-int printloct(va_list l, char *b, unsigned int ib)
+int prinloct(va_list arguments, char *buf, unsigned int ibuf)
 {
 	long int i, j, g, fd, var_input;
 	char *oct, *bin;
 
-	var_input = va_arg(l, long int);
+	var_input = va_arg(arguments, long int);
 	g = 0;
 	if (var_input == 0)
 	{
-		ib = handl_buf(b, '0', ib);
+		ibuf = handl_buf(buf, '0', ibuf);
 		return (1);
 	}
 	if (var_input < 0)
@@ -34,7 +34,7 @@ int printloct(va_list l, char *b, unsigned int ib)
 			fd = 1;
 		if (fd)
 		{
-			ib = handl_buf(b, oct[i], ib);
+			ibuf = handl_buf(buf, oct[i], ibuf);
 			j++;
 		}
 	}
