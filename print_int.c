@@ -2,7 +2,7 @@
 
 /**
  * print_int - prints an integer
- * l: list of argument
+ * @l: list of argument
  * @b: buffer pointer
  * @ib: index for buffer pointer
  * Return: number of char printed
@@ -11,6 +11,7 @@ int print_int(va_list l, char *b, unsigned int ib)
 {
 	int var_input;
 	unsigned int i, j, k, d, g;
+
 	var_input = va_arg(l, int);
 	g = 0;
 	if (var_input < 0)
