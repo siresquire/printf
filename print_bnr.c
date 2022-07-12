@@ -2,21 +2,21 @@
 
 /**
  * print_bnr - prints decimal in binary
- * @l: input string
- * @b: buffer pointer
- * @ib: index for buffer pointer
+ * @arguments: list of arguments
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
  * Return: number of chars printed.
  */
-int print_bnr(va_list l, char *b, unsigned int ib)
+int print_bnr(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int var_input, j, i, fo, g;
 	char *bin;
 
-	var_input = va_arg(l, int);
+	var_input = va_arg(arguments, int);
 	g = 0;
 	if (var_input == 0)
 	{
-		ib = handl_buf(b, '0', ib);
+		ibuf = handl_buf(buf, '0', ibuf);
 		return (1);
 	}
 	if (var_input < 0)
@@ -32,7 +32,7 @@ int print_bnr(va_list l, char *b, unsigned int ib)
 			fo = 1;
 		if (fo == 1)
 		{
-			ib = handl_buf(b, bin[i], ib);
+			ibuf = handl_buf(buf, bin[i], ibuf);
 			j++;
 		}
 	}
