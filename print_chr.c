@@ -11,6 +11,7 @@
 int print_chr(va_list l, char *b, unsigned int i)
 {
 	char c;
+
 	c = va_arg(l, int);
 	handl_buf(b, c, i);
 	return (1);
