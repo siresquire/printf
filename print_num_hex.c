@@ -1,22 +1,22 @@
 #include <main.h>
 
 /**
- * printnhex - prints number in hexadecimal begining with zero
- * @l: input
- * @b: buffer pointer
- * @ib: index for buffer pointer
+ * prinnhex - prints number in hexadecimal begining with zero
+ * @arguments: list of arguments
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
  * Return: number of char printed
  */
-int printnhex(va_list l, char *b, unsigned int *ib)
+int prinnhex(va_list arguments, char *buf, unsigned int *ibuf)
 {
 	int i, j, fd, g, var_input;
 	char *hexa, *bin;
 
-	var_input = (va_arg(l, int));
+	var_input = (va_arg(arguments, int));
 	g = 0;
 	if (var_input == 0)
 	{
-		ib = handl_buf(b, '0', ib);
+		ibuf = handl_buf(buf, '0', ibuf);
 		return (1);
 	}
 	if (var_input < 0)
@@ -24,8 +24,8 @@ int printnhex(va_list l, char *b, unsigned int *ib)
 		var_input = (var_input * -1) - 1;
 		g = 1;
 	}
-	ib = handl_buf(b, '0', ib);
-	ib = handl_buf(b, 'x', ib);
+	ibuf = handl_buf(buf, '0', ibuf);
+	ibuf = handl_buf(buf, 'x', ibuf);
 	bin = malloc(sizeof(char) * (32 + 1));
 	bin = fill_binary_array(bin, var_input, g, 32);
 	hexa = malloc(sizeof(char) * (8 + 1));
@@ -36,7 +36,7 @@ int printnhex(va_list l, char *b, unsigned int *ib)
 			fd = 1;
 		if (fd)
 		{
-			ib = handl_buf(b, hexa[i], ib);
+			ibuf = handl_buf(buf, hexa[i], ibuf);
 			j++;
 		}
 	}
