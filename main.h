@@ -20,6 +20,7 @@ int printnhex(va_list l, char *b, unsigned int *ib);
 int printnoct(va_list l, char *b, unsigned int ib);
 int printnupx(va_list l, char *b, unsigned int *ib);
 int print_rev(va_list l, char *b, unsigned int ib);
+int print_str(va_list l, char *b, unsigned int ib);
 int print_prg(va_list a __attribute__((unused)), char *b, unsigned int ib);
 int print_rot(va_list l, char *b, unsigned int ib);
 unsigned int handl_buf(char *b, char c, unsigned int ib);
