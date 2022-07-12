@@ -1,82 +1,49 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * check_for_specifiers - checks if there is a valid format specifier
- * @format: possible format specifier
- *
- * Return: pointer to valid function or NULL
+ * _printf - prints$
+ * @format: format
+ * Return: nb of printed characters
  */
-static int (*check_for_specifiers(const char *format))(va_list)
-{
-	unsigned int i;
-	print_t p[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"i", print_i},
-		{"d", print_d},
-		{"u", print_u},
-		{"b", print_b},
-		{"o", print_o},
-		{"x", print_x},
-		{"X", print_X},
-		{"p", print_p},
-		{"S", print_S},
-		{"r", print_r},
-		{"R", print_R},
-		{NULL, NULL}
-	};
 
-	for (i = 0; p[i].t != NULL; i++)
-	{
-		if (*(p[i].t) == *format)
-		{
-			break;
-		}
-	}
-	return (p[i].f);
-}
-
-/**
- * _printf - prints anything
- * @format: list of argument types passed to the function
- *
- * Return: number of characters printed
- */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, count = 0;
-	va_list valist;
-	int (*f)(va_list);
+	int  (*structyp)(va_list);
+	unsigned int pri_c = 0;
+	va_list ap;
 
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	va_start(valist, format);
-	while (format[i])
+	va_start(ap, format);
+	_putchar(-1);
+	while (format[0])
 	{
-		for (; format[i] != '%' && format[i]; i++)
+		if (format[0] == '%')
 		{
-			_putchar(format[i]);
-			count++;
+			structyp = manager(format);
+			if (structyp)
+			{
+				pri_c += structyp(ap);
+			}
+			else if (format[1] != '\0')
+			{
+				pri_c += _putchar('%');
+				pri_c += _putchar(format[1]);
+			}
+			else
+			{
+				pri_c += _putchar('%');
+				break;
+			}
+			format += 2;
 		}
-		if (!format[i])
-			return (count);
-		f = check_for_specifiers(&format[i + 1]);
-		if (f != NULL)
-		{
-			count += f(valist);
-			i += 2;
-			continue;
-		}
-		if (!format[i + 1])
-			return (-1);
-		_putchar(format[i]);
-		count++;
-		if (format[i + 1] == '%')
-			i += 2;
 		else
-			i++;
+		{
+			pri_c += _putchar(format[0]);
+			format++;
+		}
 	}
-	va_end(valist);
-	return (count);
+	_putchar(-2);
+	va_end(ap);
+	return (pri_c);
 }
