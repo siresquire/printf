@@ -9,6 +9,7 @@ int print_bnr(va_list l, char *b, unsigned int ib);
 int print_buf(char *b, unsigned int n);
 int print_chr(va_list l, char b, unsigned int i);
 int print_hex(va_list l, char *b, unsigned int ib);
+int print_int(va_list l, char *b, unsigned int ib);
 unsigned int handl_buf(char *b, char c, unsigned int ib);
 int print_buf(char *buf, unsigned int nbuf);
 char *fill_binary_array(char *bin, long int int_in, int isneg, int limit);
