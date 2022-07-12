@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * printnoct - prints in octal begining with zero
- * @l: input number
- * @b: buffer pointer
- * @ib: index for buffer pointer
+ * prinnoct - prints in octal begining with zero
+ * @arguments: list of arguments
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
  * Return: number of char printed.
  */
-int printnoct(va_list l, char *b, unsigned int ib)
+int prinnoct(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int i, j, g, fd, var_input;
 	char *oct, *bin;
 
-	var_input = va_arg(l, int);
+	var_input = va_arg(arguments, int);
 	g = 0;
 	if (var_input == 0)
 	{
-		ib = handl_buf(b, '0', ib);
+		ibuf = handl_buf(buf, '0', ibuf);
 		return (1);
 	}
 	if (var_input < 0)
@@ -24,7 +24,7 @@ int printnoct(va_list l, char *b, unsigned int ib)
 		var_input = (var_input * -1) - 1;
 		g = 1;
 	}
-	ib = handl_buf(b, '0', ib);
+	ibuf = handl_buf(buf, '0', ibuf);
 	bin = malloc(sizeof(char) * (32 + 1));
 	bin = fill_binary_array(bin, var_input, g, 32);
 	oct = malloc(sizeof(char) * (11 + 1));
@@ -35,7 +35,7 @@ int printnoct(va_list l, char *b, unsigned int ib)
 			fd = 1;
 		if (fd)
 		{
-			ib = handl_buf(b, oct[i], ib);
+			ibuf = handl_buf(buf, oct[i], ibuf);
 			j++;
 		}
 	}
