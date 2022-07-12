@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_int - prints a long integer
- * l: list of argument
+ * printlint - prints a long integer
+ * @l: list of argument
  * @b: buffer pointer
  * @ib: index for buffer pointer
  * Return: number of char printed
@@ -11,6 +11,7 @@ int printlint(va_list l, char *b, unsigned int ib)
 {
 	long int var_input;
 	unsigned long int i, j, k, d, g;
+
 	var_input = va_arg(l, long int);
 	g = 0;
 	if (var_input < 0)
