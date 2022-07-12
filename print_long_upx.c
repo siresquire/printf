@@ -35,7 +35,7 @@ int printlupx(va_list l, char *b, unsigned int *ib)
 		if (fd)
 		{
 			ib = handl_buf(b, hexa[i], ib);
-			j;
+			j++;
 		}
 	}
 	free(bin);
