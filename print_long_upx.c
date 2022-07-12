@@ -1,22 +1,22 @@
 #include <main.h>
 
 /**
- * printlupx - prints long decimal in hexexadecimal
- * @l: input
- * @b: buffer pointer
- * @ib: index for buffer pointer
+ * prinlupx - prints long decimal in hexexadecimal
+ * @arguments: list of arguments
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
  * Return: number of char printed
  */
-int printlupx(va_list l, char *b, unsigned int *ib)
+int prinlupx(va_list arguments, char *buf, unsigned int *ibuf)
 {
 	long int i, j, fd, g, var_input;
 	char *hexa, *bin;
 
-	var_input = (va_arg(l, long int));
+	var_input = (va_arg(arguments, long int));
 	g = 0;
 	if (var_input == 0)
 	{
-		ib = handl_buf(b, '0', ib);
+		ibuf = handl_buf(buf, '0', ibuf);
 		return (1);
 	}
 	if (var_input < 0)
@@ -34,7 +34,7 @@ int printlupx(va_list l, char *b, unsigned int *ib)
 			fd = 1;
 		if (fd)
 		{
-			ib = handl_buf(b, hexa[i], ib);
+			ibuf = handl_buf(buf, hexa[i], ibuf);
 			j++;
 		}
 	}
