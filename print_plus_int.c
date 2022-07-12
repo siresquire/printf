@@ -1,27 +1,27 @@
 #include "main.h"
 
 /**
- * printpint - print integer with plus symbol
- * @l: list of arguments
- * @b: buffer pointer
- * @ib: index for buffer pointer
+ * prinpint - print integer with plus symbol
+ * @arguments: list of arguments
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
  * Return: number of char printed
  */
-int printpint(va_list l, char *b, unsigned int ib)
+int prinpint(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int var_input;
 	unsigned int i, j, k, d;
 
-	i = va_arg(l, int);
+	i = va_arg(arguments, int);
 	if (var_input < 0)
 	{
 		i = var_input * -1;
-		ib = handl_buf(b, '-', ib);
+		ibuf = handl_buf(buf, '-', ibuf);
 	}
 	else
 	{
 		i = var_input;
-		ib = handl_buf(b, '+', ib);
+		ibuf = handl_buf(buf, '+', ibuf);
 	}
 	j = i;
 	d = 1;
@@ -31,6 +31,6 @@ int printpint(va_list l, char *b, unsigned int ib)
 		j /= 10;
 	}
 	for (k = 0; d > 0; d /= 10, k++)
-		ib = handl_buf(b, ((i / d) % 10) + '0', ib);
+		ibuf = handl_buf(buf, ((i / d) % 10) + '0', ibuf);
 	return (k + 1);
 }
