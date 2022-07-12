@@ -3,16 +3,16 @@
 
 /**
  * print_chr - writes the character c to stdout
- * @l: input char
- * @b: buffer pointer
- * @i: index for buffer pointer
- * Return: Always 1
+ * @arguments: input char
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
+ * Return: On success 1
  */
-int print_chr(va_list l, char *b, unsigned int i)
+int print_chr(va_list arguments, char *buf, unsigned int ibuf)
 {
 	char c;
 
-	c = va_arg(l, int);
-	handl_buf(b, c, i);
+	c = va_arg(arguments, int);
+	handl_buf(buf, c, ibuf);
 	return (1);
 }
