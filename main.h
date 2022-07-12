@@ -14,6 +14,7 @@ int printlhex(va_list l, char *b, unsigned int ib);
 int printlint(va_list l, char *b, unsigned int ib);
 int print_oct(va_list l, char *b, unsigned int ib);
 int printloct(va_list l, char *b, unsigned int ib);
+int printlunt(va_list l, char *b, unsigned int ib);
 unsigned int handl_buf(char *b, char c, unsigned int ib);
 int print_buf(char *buf, unsigned int nbuf);
 char *fill_binary_array(char *bin, long int int_in, int isneg, int limit);
