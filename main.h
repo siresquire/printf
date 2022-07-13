@@ -1,41 +1,46 @@
-#ifndef PRINT_H
-#define PRINT_H
+#ifndef PRINT_F
+#define PRINT_F
 
-#include <stdarg.h>
-#include <stddef.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 /**
- * struct structprint - structure containing
- * @q: the location and method to translate data to characters.
- * @u: print function for specific type.
- * Return: int
- */
-typedef struct structprint
+* struct convert - defines a structure for symbols and functions
+*
+* @sym: The operator
+* @f: The function associated
+*/
+struct convert
 {
-	char *q;
-	int (*u)(va_list);
-} strum;
+	char *sym;
+	int (*f)(va_list);
+};
+typedef struct convert conver_t;
 
-int _putchar(char ch);
-int _puts(char *string);
-int print_c(va_list);
-int print_str(va_list);
-int (*manager(const char *format))(va_list);
+/*Main functions*/
+int parser(const char *format, conver_t f_list[], va_list arg_list);
 int _printf(const char *format, ...);
-int print_int(va_list ap);
-int integer(int number);
-int count_digit(int number);
-int _abs(int number);
-int print_percent(va_list ap);
-int print_bin(va_list ap);
-int print_x(va_list ap);
-int print_hex(unsigned int n, unsigned int c);
-int print_X(va_list ap);
-int print_dec(va_list ap);
-int print_oct(va_list ap);
-int print_spestr(va_list ap);
-int print_p(va_list ap);
-int print_revstr(va_list ap);
-int print_rot13(va_list ap);
+int _write_char(char);
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_integer(va_list);
+int print_number(va_list);
+int print_binary(va_list);
+int print_reversed(va_list arg);
+int rot13(va_list);
+int unsigned_integer(va_list);
+int print_octal(va_list list);
+int print_hex(va_list list);
+int print_heX(va_list list);
+
+/*Helper functions*/
+unsigned int base_len(unsigned int, int);
+char *rev_string(char *);
+void write_base(char *str);
+char *_memcpy(char *dest, char *src, unsigned int n);
+int print_unsgined_number(unsigned int);
+
+
 #endif
