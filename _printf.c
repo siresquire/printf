@@ -20,6 +20,8 @@ int _printf(const char *format, ...)
 		{"R", rot13},
 		{"u", unsigned_integer},
 		{"o", print_octal},
+		{"p", print_add},
+		{"S", print_nasc},
 		{"x", print_hex},
 		{"X", print_heX},
 		{NULL, NULL}
