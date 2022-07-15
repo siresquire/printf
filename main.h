@@ -6,6 +6,12 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
+
 /**
  * struct convert - defines a structure for symbols and functions
  * @sym: The operator
@@ -43,5 +49,6 @@ char *rev_string(char *);
 void write_base(char *str);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int print_unsigned_number(unsigned int);
+int _flags(const char *format, int *i);
 
 #endif
